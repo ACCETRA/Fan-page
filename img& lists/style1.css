@@ -1,0 +1,272 @@
+/* Root Variables for Theming and Dynamic Scaling */
+:root {
+    --primary-color: #00f7ff;
+    --secondary-color: #7fffd4;
+    --text-color: #e0f7fa;
+    --accent-color: #b2ebf2;
+    --background-dark: #000814;
+    --background-light: #001f3f;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-color: #00eaff;
+    --transition-speed: 0.4s;
+    --animation-duration: 6s;
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --spacing-unit: 1rem;
+    --border-radius: 8px;
+    --border-radius-large: 20px;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-stack);
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at bottom, var(--background-light) 0%, var(--background-dark) 100%);
+    color: var(--text-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--shadow-color);
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--shadow-color);
+    opacity: 0.8;
+}
+
+/* Header */
+header {
+    background: transparent;
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+    color: var(--secondary-color);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    animation: waveText var(--animation-duration) ease-in-out infinite;
+}
+
+@keyframes waveText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+/* Image Gallery with CSS Grid */
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+    margin: calc(var(--spacing-unit) * 2.5) auto;
+    padding: 0 var(--spacing-unit);
+    justify-items: center;
+}
+
+.image-container img {
+    height: 280px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 50% 50% 60% 60% / 60% 60% 80% 80%;
+    box-shadow: 0 0 20px var(--shadow-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed);
+    animation: floatJellyfish var(--animation-duration) ease-in-out infinite;
+}
+
+.image-container img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px var(--shadow-color);
+    z-index: 10;
+}
+
+@keyframes floatJellyfish {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: calc(var(--spacing-unit) * 2) 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+}
+
+td {
+    padding: calc(var(--spacing-unit) * 0.75);
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1rem;
+    border: 1px solid var(--glass-border);
+}
+
+/* Headings */
+h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 6px var(--primary-color);
+    margin: calc(var(--spacing-unit) * 2.5) 0 var(--spacing-unit);
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+/* Glass Effect for Cards */
+.glass-box {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 0 30px var(--shadow-color);
+    padding: calc(var(--spacing-unit) * 1.5);
+    margin: calc(var(--spacing-unit) * 2) auto;
+    max-width: 600px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit);
+}
+
+input,
+textarea {
+    padding: calc(var(--spacing-unit) * 0.75) var(--spacing-unit);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+    background: var(--glass-bg);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--accent-color);
+    opacity: 0.7;
+}
+
+/* Radio Button Container for Parallel Layout */
+.radio-container {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing-unit) * 2);
+    margin: calc(var(--spacing-unit) * 2) 0;
+    flex-wrap: wrap;
+}
+
+/* Label Styling */
+.radio-container label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) * 0.75);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 0 10px var(--shadow-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.radio-container label:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+/* Radio Input (Hidden but Functional) */
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+/* Image Styling */
+.radio-container label img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--shadow-color);
+    transition: transform var(--transition-speed) ease;
+}
+
+.radio-container label img:hover {
+    transform: scale(1.1);
+}
+
+/* Checked State Styling */
+.radio-container input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px var(--shadow-color);
+    transform: scale(1.05);
+}
+
+/* Video Styling */
+video {
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    margin: var(--spacing-unit) auto;
+    border: 1px solid var(--primary-color);
+    display: block;
+}
+
+/* Footer */
+footer {
+    background: var(--glass-bg);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 1.25);
+    font-size: 0.9rem;
+    margin-top: calc(var(--spacing-unit) * 4);
+    border-top: 1px solid var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .image-container img {
+        height: 200px;
+        width: 140px;
+    }
+
+    header {
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+    }
+
+    .glass-box {
+        padding: var(--spacing-unit);
+    }
+}
+
+/* High Contrast Theme (Optional Accessibility) */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #00ccff;
+        --secondary-color: #66ffcc;
+        --text-color: #ffffff;
+        --glass-bg: rgba(255, 255, 255, 0.2);
+    }
+}

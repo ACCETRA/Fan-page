@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAL PAL Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to The Pal Pal Fan Page Photo and Video Gallery</h1>
+        <p>Explore CAST & The SONG</p>
+    </header>
+    <div class="container">
+        <div class="image-container">
+            <img src="image1.png" alt="Ali Soomro">
+            <img src="image2.png" alt="Affan Khan">
+        </div>
+
+        <table>
+            <tr>
+                <td>Ali Soomro</td>
+                <td>Affan Khan</td>
+            </tr>
+        </table>
+
+        <h2>Contact Us</h2>
+        <div class="glass-box">
+            <form>
+                <input type="text" placeholder="Enter your name" required>
+                <input type="email" aria-label="email" placeholder="Enter your email" required>
+                <textarea rows="4" placeholder="Enter your message here"></textarea>
+                <label>
+                    <input type="checkbox" name="subscribe" value="Subscribe"> Subscribe to our newsletter
+                </label>
+            </form>
+        </div>
+
+        <h2>Choose Your Favorite</h2>
+        <div class="radio-container">
+            <input type="radio" name="choice" value="Choice 1" id="choice1">
+            <label for="choice1">
+                1: Ali Soomro
+                <img src="image1.png" alt="Ali Soomro">
+            </label>
+            <input type="radio" name="choice" value="Choice 2" id="choice2">
+            <label for="choice2">
+                2: Affan Khan
+                <img src="image2.png" alt="Affan Khan">
+            </label>
+        </div>
+
+        <h2>Featured Video</h2>
+        <video controls width="100%">
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <footer>
+        <p>© 2025 Impressive Photo and Video Gallery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
